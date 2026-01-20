@@ -1,18 +1,29 @@
+body{
+    background-color: rgb(49, 158, 182);
+}
+
 .library{
     display: flex;
     padding:40px;
     flex-wrap: wrap;
+    gap:40px
 }
 
 .book{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     min-width: 250px;
     min-height: 150px;
     background-color: aquamarine;
+    border-radius: 20px;
+    padding: 20px;
 }
 
 button{
+    border-radius: 5px;
+    padding: 4px 5px 4px 5px;
     border: none;
     background-color: rgb(0, 255, 255);
+    margin: 10px 5px 10px 5px;
 }
 
 button:hover{
@@ -21,4 +32,12 @@ button:hover{
 
 button:active{
     opacity: 40%;
+}
+
+.readBook{
+    background-color: rgb(0, 195, 0);
+}
+
+.unreadBook{
+    background-color: rgb(230, 31, 31);
 }

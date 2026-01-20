@@ -15,6 +15,18 @@ dial.addEventListener('close', () => {
     addBook();
 })
 
+dial.addEventListener("click", (e) => {
+  const dialogDimensions = dial.getBoundingClientRect();
+  if (
+    e.clientX < dialogDimensions.left ||
+    e.clientX > dialogDimensions.right ||
+    e.clientY < dialogDimensions.top ||
+    e.clientY > dialogDimensions.bottom
+  ) {
+    dial.close();
+  }
+});
+
 function Book(title, author, nbPages, readStatus, bookID) {
     this.title = title;
     this.author = author;
@@ -46,6 +58,12 @@ function addBook() {
 
         console.log(book.info());
 
+
+
+
+
+
+
         let bContainer = document.createElement("div");
         bContainer.classList.add("book");
         bContainer.id = bookID;
@@ -60,7 +78,7 @@ function addBook() {
 
         let p = document.createElement("div");
         p.classList.add("pages");
-        p.innerText = book.nbPages;
+        p.innerText = book.nbPages + " pages";
 
         let r = document.createElement("div");
         r.classList.add("read");
@@ -69,6 +87,11 @@ function addBook() {
         let readBtn = document.createElement("button");
         readBtn.classList.add("readBtn");
         readBtn.innerText = book.status;
+        if (book.status === "read") {
+            readBtn.classList.add("readBook");
+        } else {
+            readBtn.classList.add("unreadBook");
+        }
         readBtn.addEventListener('click', () => {
             statusChange(book, readBtn, r);
         });
@@ -91,7 +114,15 @@ function addBook() {
 
 function statusChange(book, button, text) {
     book.status = (book.status === "read") ? "unread" : "read";
+    if (book.status === "read") {
+        button.classList.add("readBook");
+        button.classList.remove("unreadBook");
+    } else {
+        button.classList.remove("readBook");
+        button.classList.add("unreadBook");
+    }
     button.innerText = book.status;
+
     text.innerText = book.status;
 }
 
@@ -99,8 +130,8 @@ function removeBook(bookID) {
     const book = document.getElementById(bookID);
     book.remove();
 
-    for(let i = 0; i < myLibrary.length; i++){
-        if(myLibrary[i].getID() === bookID){
+    for (let i = 0; i < myLibrary.length; i++) {
+        if (myLibrary[i].getID() === bookID) {
             myLibrary.splice(i);
             return;
         }
