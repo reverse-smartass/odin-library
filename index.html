@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="library" id="library">
+        <div class="book" id="book">
+            <div class="title">title</div>
+            <div class="author">author</div>
+            <div class="pages">pages</div>
+            <div class="read">read</div>
+            <button class="readBtn">button</button>
+            <button class="removeBtn">button</button>
+        </div>
+    </div>
+
+    <dialog id="dial">
+        <form method="dialog" id="bookform">
+            <input type="text" name="title" id="title" placeholder="Book title" required>
+            <input type="text" name="author" id="author" placeholder="Book author" required>
+            <input type="number" name="pages" id="pages" placeholder="Number of pages" required>
+            <select name="read" id="readselect" required>
+                <option value="read">read</option>
+                <option value="unread">unread</option>
+            </select>
+            <button type="button" onclick="this.closest('dialog').close();" value="cancel">Close</button>
+            <button id="submitBtn" type="submit" value="save">Submit</button>
+        </form>
+    </dialog>
+    <button id="addnew">add static</button>
+    
+</body>
+</html>

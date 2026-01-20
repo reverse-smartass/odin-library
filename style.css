@@ -1,0 +1,24 @@
+.library{
+    display: flex;
+    padding:40px;
+    flex-wrap: wrap;
+}
+
+.book{
+    min-width: 250px;
+    min-height: 150px;
+    background-color: aquamarine;
+}
+
+button{
+    border: none;
+    background-color: rgb(0, 255, 255);
+}
+
+button:hover{
+    background-color: rgb(206, 255, 81);
+}
+
+button:active{
+    opacity: 40%;
+}
