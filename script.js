@@ -27,17 +27,19 @@ dial.addEventListener("click", (e) => {
   }
 });
 
-function Book(title, author, nbPages, readStatus, bookID) {
-    this.title = title;
-    this.author = author;
-    this.nbPages = nbPages;
-    this.status = readStatus;
-    this.ID = bookID;
-    this.getID = function () {
-        return this.ID;
-    }
-    this.info = function () {
-        return this.title + " by " + this.author + ", " + this.nbPages + " pages, " + this.status + ".";
+class Book {
+    constructor(title, author, nbPages, readStatus, bookID) {
+        this.title = title;
+        this.author = author;
+        this.nbPages = nbPages;
+        this.status = readStatus;
+        this.ID = bookID;
+        this.getID = function () {
+            return this.ID;
+        };
+        this.info = function () {
+            return this.title + " by " + this.author + ", " + this.nbPages + " pages, " + this.status + ".";
+        };
     }
 }
 
